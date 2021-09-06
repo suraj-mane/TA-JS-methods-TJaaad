@@ -3,10 +3,10 @@ let message = 'If you are still thinking the answer is no!';
 // Log the length of the variable message like `The length of [message] is [length]`
 console.log(message.length);
 // Log the character at index 0 of the variable message like `The first character of [message] is [character]`
-const char = message.indexOf();
+const char = message.charAt(0);
 console.log(`The first character of [message] is ${char}`);
 // Log the last character of message using length like `The last character of [message] is [character]`
-const charSec = message.indexOf();
+const charSec = message.charAt(message.length-1);
 console.log(`The first character of [message] is ${charSec}`);
 // Log the index of word "you" in message
 console.log(message.indexOf("you"));
@@ -23,14 +23,13 @@ console.log(message.includes("is"));
 // Log true or false based on whether the word "Is" exist in message or not
 console.log(message.includes("Is"));
 // Check and log whether the word from index 3 to 6 is "you" or not (use slice)
-console.log(message.indexOf(3,6));
-console.log(message.includes());
+console.log(message.slice(3,6) === "you");
 // Check and log whether the word from index 7 to 8 is "a" or not
-console.log(message.includes());
+console.log(message.slice(7,8) === "a");
 // Check and log whether the last 3 character in message is "no!" or not (you can use -3 in slice)
-
+console.log(message.slice(message.length-3) === "no!");
 // Check and log whether the last 5 character in message is "no!" or not
-
+console.log(message.slice(message.length-5) === "no!");
 // Log the message variable, all in lowecase
 console.log(message.toLowerCase());
 // Log the message variable, all in uppercase
@@ -49,6 +48,8 @@ for(let line of message){
   console.log(line);
 }
 // Split all the words in message (split by " " space) and store it in a variable messageArray
-let messageArray = message.split(words[4]);
+let messageArray = message.split("");
 // Log all the words of messageArray
-console.log(messageArray);
+for(let char of messageArray){
+  console.log(char);
+}
