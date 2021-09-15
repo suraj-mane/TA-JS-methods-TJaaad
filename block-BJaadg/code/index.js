@@ -25,8 +25,9 @@ console.log('The index of first is in quote is 7');
   The character at index 4 is 'e'
   The character at index 5 is ' '
 */
-let store = quote.slice(1);
-console.log(store);
+for(let i = 0; i < 6; i++){
+  console.log(`The character at index ${i} is ${quote[i]}`);
+}
 /*
 5. Using the variable from , to and quote variable dispaly this message
   "Syrio Forel said There is only one thing we say to death: Not today to Arya Stark." (use concat method)
@@ -53,22 +54,26 @@ quote.indexOf('we');
 /*
 10. Split the quote into individual word and store it in a variable name quoteSplitted
 */
-let quoteSplitted = quote.split('');
+let quoteSplitted = quote.split(" ");
 /*
 11. Change the word "today" in quoteSplitted to "tomorrow" and join all the words to form a sentance.
 */
+let index = quoteSplitted.indexOf("today");
+quoteSplitted[index] = "tomorrow";
+quoteSplitted.join("");
 /*
 12. Find the index of second "o" in quote. Use indexOf
 */
-console.log(quote.indexOf("o"));
+console.log(quote.indexOf('o',8));
 /*
 13. Find the last index of letter "a" in quote.
 */
-console.log(quote.lastIndexOf("a"));
+let last = quote.lastIndexOf("a");
+console.log(last);
 /*
 14. Find the second last index of letter "a" in quote.
 */
-console.log(quote.lastIndexOf("a"));
+console.log(quote.lastIndexOf('a', last-1));
 /*
 15. Make the quote 70 character long. If it has less characters add rest as .......
 Example: "Hello" (convert to 10 characters) => "Hello....."
@@ -93,13 +98,15 @@ quote.replace('today','tomorrow');
 /*
 19. Replace Stark to Lannister in quoteTo
 */
-let quoteTo = to.replace('Stark', 'Lannister');
+quote.replace('Stark', 'Lannister');
 /*
 20. Make the quote of length 30 and put ... at the end. (use slice)
 */
-let wor = quote.slice('');
-console.log(wor.padEnd(30, '.'));
+let limit = quote.slice(0,30) + "........" ;
+console.log(limit);
 /*
 21. Find out does quote, from, to starts with "A"
 */
-quote.includes('A');
+console.log(quote.startsWith("A"));
+console.log(from.startsWith("A"));
+console.log(to.startsWith("A"));
