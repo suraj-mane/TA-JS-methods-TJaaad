@@ -47,24 +47,35 @@ console.log(largests);
 var largest = strings.sort(function(a,b){ return b.length - a.length});
 console.log(largest);
 // - Find all the even numbers
-let evenNum = numbers.filter(x => x % 2 == 0);
+let evenNum = [...numbers].filter(x => x % 2 == 0);
 console.log(evenNum);
 // - Find all the odd numbers
-let odd = numbers.filter(x => x % 2 !==0);
+let odd = [...numbers].filter(x => x % 2 !==0);
 console.log(odd);
 // - Place a new word at the start of the array use (unshift)
 strings.unshift('sun');
 // - Make a subset of numbers array [18,9,7,11]
-
+console.log(numbers.splice(3,7));
 // - Make a subset of strings array ['a','collection']
-
+strings.splice(3,4);
 // - Replace 12 & 18 with 1221 and 1881
-// numbers.replace(12 , 1221);
-// numbers.replace(18 , 1881);
+console.log(numbers.map((num) => {
+  if(num === 12){
+    return 1221;
+  } else if(num === 18){
+    return 1881;
+  } else {
+    return num;
+  }
+})
+);
 // - Replace words in strings array with the length of the word
-
+let letter = strings.map((string) => string.length);
 // - Find the sum of the length of words using above question
-
+letter.reduce((acc, cv) => {
+  acc = acc + cv;
+  return acc;
+}, 0);
 // - Customers Array
 var customers = [
   { firstname: 'Joe', lastname: 'Blogs' },
@@ -73,25 +84,32 @@ var customers = [
   { firstname: 'Jack', lastname: 'White' },
 ];
 // - Find all customers whose firstname starts with 'J'
-function firstame(){
-  for(let x of customers){
-    x.firstname.startsWith("J");
-  }  
-}
-
+let filtername = customers.filter((customer) => customer.firstname.startsWith("J"));
+console.log(filtername);
 // - Create new array with only first name
-let newArray = [];
-for(let names of customers){
-  newArray.push(names.firstname);
-}
-console.log(newArray);
+let firstName = customers.map(
+  (customer) => customer.firstname
+);
+console.log(firstName);
 // - Create new array with all the full names (ex: "Joe Blogs")
-let fullName = [];
-for(let names of customers){
-  fullName.push(names.firstname + " " + names.lastname);
-}
+let fullName = customers.map(
+  (customer) => `${customer.firstname} ${customer.lastname}`
+);
 console.log(fullName);
 // - Sort the array created above alphabetically
-console.log(fullName.sort());
+[...fullName].sort();
 // - Create a new array that contains only user who has at least one vowel in the firstname.
-console.log(newArray.splice(""));
+ let vowelcontain = customers.filter((customer) => {
+   if(
+     customer.firstname.toLowerCase().includes("a") ||
+     customer.firstname.toLowerCase().includes("e") ||
+     customer.firstname.toLowerCase().includes("i") ||
+     customer.firstname.toLowerCase().includes("o") ||
+     customer.firstname.toLowerCase().includes("u") 
+    ) {
+      return true;
+    } else {
+      return false;
+    }
+ });
+ console.log(vowelcontain);
