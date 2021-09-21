@@ -11,57 +11,33 @@ let words = [
 
 
 // - Write a function findLongestWord that takes an array of words and returns the longest word from the array. (Use above array "words" to test it). If there are 2 with the same length, it should return the first occurrence.
-function findLongestWord(arr) {
-  let word = "";
-  for(let i=0; i < arr.length; i++){
-    if(word.length < arr[i].length){
-      word = arr[i];
-    }
-  }
-  return word;
+function findLongestWord(array) {
+  return [...array].sort((a, b) => a.length - b.length).pop();
 }
 console.log(findLongestWord(words));
 // - Convert the above array "words" into an array of length of word instead of word.
 let num = words.map((ele) => ele.length);
 console.log(num);
 // - Create a new array that only contains word with atleast one vowel.
-let findVowel = words.filter((wor) => {
-  if(
-    wor.includes("a") || 
-     wor.includes("e") ||
-     wor.includes("i") ||
-     wor.includes("o") ||
-     wor.includes("u") 
-    ) {
-       return true;
-     } else {
-       return false;
-     }
-});
-console.log(findVowel);
+function checkVowel(words) {
+   return ( words.includes("a") || 
+     words.includes("e") ||
+     words.includes("i") ||
+     words.includes("o") ||
+     words.includes("u") 
+   );
+}
+let vowel = words.filter((w) => checkVowel(w));
+console.log(vowel);
 // - Find the index of the word "rhythm"
 let findIndex = words.indexOf("rhythm");
 console.log(findIndex);
 // - Create a new array that contians words not starting with vowel.
-let letters = words.filter((word) => {
-  if(
-    !word.charAt(0).includes("a") || 
-    !word.charAt(0).includes("e") ||
-    !word.charAt(0).includes("i") ||
-    !word.charAt(0).includes("o") ||
-    !word.charAt(0).includes("u") 
-  ) {
-    return true;
-  } else {
-    return false;
-  }
-});
+let letters = words.filter((w) => !checkVowel(w[0]));
 console.log(letters);
 // - Create a new array that contianse words not ending with vowel
-let endVowel = words.filter((word) => {
-  word.charAt(length-1);
-}); 
-console.log(endVowel);
+let letter = words.filter((w) => !checkVowel(w[w.length-1]));
+console.log(letter  );
 //
 let numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
@@ -91,11 +67,7 @@ let sumOfNumber = numbers.reduce((sum, num) => sum + num);
 console.log(sumOfNumber);
 //- Write a function averageNumbers that receives an array of numbers and calculate the average of the numbers
 function averageNumbers(num){
-  let total = 0;
-  for(let i=0; i < num.length; i++){
-    total = num.length;
-  }
-  return sumOfNumber / total;
+  return sumOfNumber / num.length;
 }
 console.log(averageNumbers(numbers));
 //
@@ -113,15 +85,7 @@ let strings = [
 ];
 
 // - Write a function averageWordLength that receives an array of words2 and calculate the average length of the words.
-function averageWorld(arr) {
-  let total = 0; 
-  let totaladd = 0;
-  for(let i =0; i<arr.length; i++){
-    total += arr[i].length;
- }
- for(let j=0; j < arr;j++){
-   totaladd = arr;
- }
- return totaladd;
+function averageWordLength (word){
+  return (word.map((w) => w.length).reduce((acc, cv) => {return acc + cv}) / word.length);
 }
-console.log(averageWorld(strings));
+console.log(averageWordLength(strings));
