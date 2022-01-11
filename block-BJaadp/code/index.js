@@ -16,8 +16,18 @@ let persons = [
 // NOTE: Use reduce method whereever you can to solve this exercise:
 
 // Find the average grade
+let avg = persons.reduce(function(accumulator, grad,index, array){
+  var total = accumulator + grad.grade;
+  var numlen = array.length;
+  return total/numlen;
+}, 0);
+console.log(avg);
 
 // Find the average grade of male
+let maleavg = persons.reduce(function(acc, cb, index,array){
+  return cb.sex == "M" ? "yes" : "N";
+},0);
+console.log(maleavg);
 
 // Find the average grade of female
 
@@ -28,7 +38,7 @@ let persons = [
 // Find the highest grade in female
 
 // Find the highest grade for people whose name starts with 'J' or 'P'
-
+/*
 const fruitBasket = [
   'banana',
   'cherry',
@@ -60,7 +70,7 @@ that fruit appeared. Use the variable defined above (fruitsObj). To get all the 
 Output: 
 
 [['banana', 2], ['cherry', 3], ['orange', 3], ['apple', 2], ['fig', 1]]
-*/
+
 
 const data = [
   [1, 2, 3],
@@ -80,7 +90,7 @@ const dataTwo = [
 
 // Using reduce flat dataTwo array
 
-/*
+
 
 Create these functions which accepts a number value and returns a number value:
   - `increment` adds one to the input value
@@ -88,7 +98,7 @@ Create these functions which accepts a number value and returns a number value:
   - `decrement` decrement 1 from the value 
   - `triple` triples the input 
   - `half` converts the value to half and return the integer value not decimal (use Math.round(21.5) => 21)
-*/
+
 
 let pipeline = [
   increment,
@@ -100,6 +110,7 @@ let pipeline = [
   half,
   increment,
 ];
+
 
 /*
 Using the pipeline variable that contains the collection of functions, taking the initial value 3 find the output.
@@ -113,7 +124,7 @@ EXAMPLE:
   decrement(8) - return 7
 
   ...
-*/
+
 
 let pipeline2 = [
   increment,
@@ -130,3 +141,4 @@ let pipeline2 = [
 ];
 
 // Find the output using pipeline2 the initial value if 8
+*/
