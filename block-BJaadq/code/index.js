@@ -1,7 +1,8 @@
-// NOTE: You can not use reduce methods to solve this exercise
-
-function countAllPeople() {
-  // your code goes here
+let allgot = got;
+function countAllPeople(arr) {
+  for (const housespeo of arr.houses) {
+    return housespeo;
+  };
 }
 
 function peopleByHouses() {
@@ -33,7 +34,7 @@ function peopleNameOfAllHouses() {
 }
 
 // Testing your result after writing your function
-console.log(countAllPeople());
+console.log(countAllPeople(allgot));
 // Output should be 33
 
 console.log(peopleByHouses());
