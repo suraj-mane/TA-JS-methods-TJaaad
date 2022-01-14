@@ -1,7 +1,10 @@
 // NOTE: You can only use the (reduce) array method to solve this exercise:
 
 function countAllPeople() {
-  // your code goes here
+  let final = 0;
+  got.houses.reduce((acc,cv) => {
+   return cv.length;
+  },0);
 }
 
 function peopleByHouses() {
